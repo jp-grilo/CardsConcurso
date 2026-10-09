@@ -1,5 +1,6 @@
 import { getCategoriesWithCounts } from '@/actions/questions';
 import { ImportButton } from '@/components/ImportButton';
+import Link from 'next/link';
 import { Folder } from 'lucide-react';
 import styles from './page.module.css';
 
@@ -26,7 +27,7 @@ export default async function QuestoesPage() {
         ) : (
           <div className={styles.grid}>
             {categories.map(cat => (
-              <div key={cat.id} className={styles.card}>
+              <Link key={cat.id} href={`/questoes/${cat.id}`} className={styles.card}>
                 <div className={styles.cardIcon}>
                   <Folder size={24} />
                 </div>
@@ -34,7 +35,7 @@ export default async function QuestoesPage() {
                   <h3>{cat.name}</h3>
                   <span>{cat.question_count} questões</span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}

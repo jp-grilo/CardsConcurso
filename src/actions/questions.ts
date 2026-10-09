@@ -68,3 +68,60 @@ export async function getCategoriesWithCounts() {
   `);
   return stmt.all() as { id: number, name: string, question_count: number }[];
 }
+
+export interface CategoryQuestionOption {
+  id: number;
+  text: string;
+  is_correct: boolean;
+  justification: string | null;
+}
+
+export interface CategoryQuestion {
+  id: number;
+  statement: string;
+  difficulty: number;
+  options: CategoryQuestionOption[];
+}
+
+export async function getCategoryWithQuestions(categoryId: number) {
+  const category = db
+    .prepare('SELECT id, name FROM categories WHERE id = ?')
+    .get(categoryId) as { id: number; name: string } | undefined;
+
+  if (!category) return null;
+
+  const questionRows = db
+    .prepare('SELECT id, statement, difficulty FROM questions WHERE category_id = ? ORDER BY id ASC')
+    .all(categoryId) as { id: number; statement: string; difficulty: number }[];
+
+  const optionRows = db
+    .prepare(`
+      SELECT o.id, o.question_id, o.text, o.is_correct, o.justification
+      FROM options o
+      JOIN questions q ON q.id = o.question_id
+      WHERE q.category_id = ?
+      ORDER BY o.id ASC
+    `)
+    .all(categoryId) as {
+      id: number;
+      question_id: number;
+      text: string;
+      is_correct: number;
+      justification: string | null;
+    }[];
+
+  const optionsByQuestion = new Map<number, CategoryQuestionOption[]>();
+  for (const o of optionRows) {
+    const list = optionsByQuestion.get(o.question_id) ?? [];
+    list.push({ id: o.id, text: o.text, is_correct: !!o.is_correct, justification: o.justification });
+    optionsByQuestion.set(o.question_id, list);
+  }
+
+  const questions: CategoryQuestion[] = questionRows.map(q => ({
+    ...q,
+    options: optionsByQuestion.get(q.id) ?? [],
+  }));
+
+  return { category, questions };
+}
+
