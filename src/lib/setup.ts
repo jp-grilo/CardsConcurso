@@ -45,6 +45,7 @@ export function setupDatabase() {
       current_question_index INTEGER DEFAULT 0,
       time_elapsed_seconds INTEGER DEFAULT 0,
       total_questions INTEGER NOT NULL,
+      config TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );

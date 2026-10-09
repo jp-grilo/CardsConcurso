@@ -77,8 +77,8 @@ export async function createSimuladoSession(topics: SimuladoTopicConfig[]) {
 
   // Cria a sessão
   const insertSession = db.prepare(`
-    INSERT INTO sessions (mode, status, total_questions)
-    VALUES ('simulado', 'em_andamento', ?)
+    INSERT INTO sessions (mode, status, total_questions, config)
+    VALUES ('simulado', 'em_andamento', ?, ?)
   `);
 
   const insertSessionAnswer = db.prepare(`
@@ -89,7 +89,7 @@ export async function createSimuladoSession(topics: SimuladoTopicConfig[]) {
   let sessionId: number | bigint = 0;
 
   const transaction = db.transaction(() => {
-    const sResult = insertSession.run(totalQuestions);
+    const sResult = insertSession.run(totalQuestions, JSON.stringify(topics));
     sessionId = sResult.lastInsertRowid;
 
     for (const qId of selectedQuestionIds) {
