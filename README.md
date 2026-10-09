@@ -261,7 +261,7 @@ export interface ImportQuestion {
 ]
 ```
 
-### Campos do Objeto:
+### 7.3. Campos do Objeto
 - `category` *(string)*: Nome da matéria/disciplina (criada automaticamente caso ainda não exista no banco).
 - `statement` *(string)*: Enunciado completo da questão.
 - `difficulty` *(número de 1 a 10)*: Nível de dificuldade estimado.
@@ -272,11 +272,13 @@ export interface ImportQuestion {
 
 ---
 
-### Pré-requisitos
+## 8. Instalação e Execução
+
+### 8.1. Pré-requisitos
 - Node.js (versão 18.0.0 ou superior);
 - Gerenciador de pacotes NPM.
 
-### Procedimento de Instalação
+### 8.2. Procedimento de Instalação
 
 1. Obtenha as dependências do projeto:
    ```bash
@@ -295,6 +297,14 @@ export interface ImportQuestion {
 
 4. Acesse o sistema através do endpoint padrão:
    ```text
+   http://localhost:3000
+   ```
+
+---
+
+## 9. Estrutura de Diretórios
+
+```text
 CardsConcurso/
 ├── src/
 │   ├── actions/          # Server Actions (gestão de sessões, importação, estatísticas)
