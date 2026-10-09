@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { ChevronUp, ChevronDown, Trash2, Plus, PlayCircle, Settings2 } from 'lucide-react';
+import { useState, useTransition } from 'react';
+import { ChevronUp, ChevronDown, Trash2, Plus, PlayCircle, Settings2, Loader2 } from 'lucide-react';
+import { createSimuladoSession } from '@/actions/sessions';
 import styles from './SimuladoSetupTable.module.css';
 
 interface Category {
@@ -27,8 +28,9 @@ export function SimuladoSetupTable({ availableCategories }: { availableCategorie
   // Bulk Actions
   const [bulkDifficulty, setBulkDifficulty] = useState<string>('');
   
-  // Add Topic
   const [topicToAdd, setTopicToAdd] = useState<string>('');
+  
+  const [isPending, startTransition] = useTransition();
 
   const unusedCategories = availableCategories.filter(
     cat => !rows.some(row => row.categoryId === cat.id)
@@ -106,8 +108,14 @@ export function SimuladoSetupTable({ availableCategories }: { availableCategorie
 
   const handleStart = () => {
     if (rows.length === 0) return alert('Adicione pelo menos um tópico.');
-    // Aqui chamaremos a Server Action para criar a Sessão e depois redirecionar
-    alert('Função de iniciar simulado será conectada ao banco de dados em breve!');
+    
+    startTransition(async () => {
+      try {
+        await createSimuladoSession(rows);
+      } catch (error: any) {
+        alert(error.message || 'Erro ao iniciar simulado.');
+      }
+    });
   };
 
   return (
@@ -254,8 +262,9 @@ export function SimuladoSetupTable({ availableCategories }: { availableCategorie
         <button className={styles.btnSecondary}>
           <Settings2 size={18} /> Salvar como Preset
         </button>
-        <button className={styles.btnStart} onClick={handleStart} disabled={rows.length === 0}>
-          <PlayCircle size={20} /> Iniciar Simulado
+        <button className={styles.btnStart} onClick={handleStart} disabled={rows.length === 0 || isPending}>
+          {isPending ? <Loader2 className={styles.spin} size={20} /> : <PlayCircle size={20} />}
+          {isPending ? 'Iniciando...' : 'Iniciar Simulado'}
         </button>
       </div>
     </div>

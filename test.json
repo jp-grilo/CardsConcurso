@@ -1,0 +1,31 @@
+[
+  {
+    "category": "Matemática",
+    "statement": "Quanto é 2 + 2?",
+    "difficulty": 1,
+    "options": [
+      { "text": "3", "is_correct": false, "justification": "Incorreto." },
+      { "text": "4", "is_correct": true, "justification": "2+2=4." },
+      { "text": "5", "is_correct": false, "justification": "Incorreto." }
+    ]
+  },
+  {
+    "category": "Matemática",
+    "statement": "Qual a raiz quadrada de 144?",
+    "difficulty": 5,
+    "options": [
+      { "text": "10", "is_correct": false, "justification": "10x10=100" },
+      { "text": "12", "is_correct": true, "justification": "12x12=144" },
+      { "text": "14", "is_correct": false, "justification": "14x14=196" }
+    ]
+  },
+  {
+    "category": "Direito",
+    "statement": "A lei não prejudicará o direito adquirido, o ato jurídico perfeito e a coisa julgada.",
+    "difficulty": 3,
+    "options": [
+      { "text": "Certo", "is_correct": true, "justification": "Art. 5º, XXXVI da CF." },
+      { "text": "Errado", "is_correct": false, "justification": "Garantia constitucional explícita." }
+    ]
+  }
+]
