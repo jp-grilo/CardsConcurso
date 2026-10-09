@@ -1,0 +1,255 @@
+.container {
+  display: flex;
+  height: 100%;
+  gap: 24px;
+}
+
+.mainArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
+}
+
+.categoryBadge {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.questionCard {
+  flex: 1;
+  padding: 32px 48px;
+  overflow-y: auto;
+}
+
+.qNumber {
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statement {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.optionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.optionBtn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background-color: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  font-size: 1.125rem;
+  color: var(--foreground);
+  transition: var(--transition);
+}
+
+.optionBtn:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--muted);
+}
+
+.optionBtn.selected {
+  border-color: var(--primary);
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .optionBtn.selected {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+}
+
+.radioIndicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.optionBtn.selected .radioIndicator {
+  border-color: var(--primary);
+}
+
+.radioDot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-top: 1px solid var(--border);
+  background-color: var(--background);
+}
+
+.navBtn, .finishBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.navBtn {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.navBtn:hover:not(:disabled) {
+  background-color: var(--border);
+}
+
+.navBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.finishBtn {
+  background-color: var(--success);
+  color: var(--success-foreground);
+}
+
+.finishBtn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.finishBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.matrixArea {
+  width: 280px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.matrixTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 24px;
+}
+
+.matrixGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  flex: 1;
+  align-content: start;
+}
+
+.matrixCell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background-color: var(--background);
+  border: 2px solid var(--border);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+
+.matrixCell:hover {
+  border-color: var(--muted);
+}
+
+.matrixCell.answered {
+  background-color: var(--muted);
+  border-color: var(--muted);
+  color: var(--background);
+}
+
+.matrixCell.current {
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+
+.matrixCell.current.answered {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.matrixLegend {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.legendDemo {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
