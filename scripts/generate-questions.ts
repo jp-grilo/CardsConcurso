@@ -158,11 +158,11 @@ Opcoes:
       const request = buildGenerateRequest(FCC_TCE_SYSTEM_PROMPT, userPrompt);
       console.log('\n[DRY-RUN] Requisicao NAO enviada. Corpo completo que seria enviado a API:\n');
       console.log(JSON.stringify(request, null, 2));
-      console.log('\n------------ systemInstruction (texto legivel) ------------');
-      console.log(request.config.systemInstruction);
-      console.log('\n------------ contents (texto legivel) ------------');
-      console.log(request.contents);
-      console.log('\n[DRY-RUN] Nenhuma chamada a API e nenhuma gravacao no banco foram realizadas.\n');
+      // console.log('\n------------ systemInstruction (texto legivel) ------------');
+      // console.log(request.config.systemInstruction);
+      // console.log('\n------------ contents (texto legivel) ------------');
+      // console.log(request.contents);
+      // console.log('\n[DRY-RUN] Nenhuma chamada a API e nenhuma gravacao no banco foram realizadas.\n');
       closeDb();
       process.exit(0);
     }

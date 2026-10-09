@@ -153,10 +153,25 @@ A gravação no SQLite é encapsulada na função nativa `db.transaction()` do d
 
 ---
 
-## 8. Atualização e Adição de Novas Fontes (`scripts/knowledge/`)
+---
 
-Para atualizar ou adicionar novos materiais de estudo:
-1. Coloque trechos em Markdown (`.md`) ou texto (`.txt`) na pasta correspondente:
-   - `scripts/knowledge/edital/`: Tópicos de editais ou ementas de disciplinas.
-   - `scripts/knowledge/provas/`: Questões anteriores com comentários ou provas na íntegra.
-2. O `knowledge-loader.ts` faz a leitura automática por correspondência temática sem necessidade de reiniciar ou recompilar o projeto.
+## 9. Validação e Ingestão de Questões de Staging (`naoValidado.txt` / `naoValidado.json`)
+
+Para questões geradas interativamente pelo chat web do Gemini:
+
+```bash
+# Validar arquivo de staging e gerar versão corrigida (.repaired.json)
+npm run validate-questions
+
+# Validar e importar automaticamente para o banco SQLite
+npm run validate-questions -- --import --topic "Lingua Portuguesa - Compreensao e Redacao Oficial"
+
+# Validar arquivo específico
+npm run validate-questions -- -f meuLote.txt
+```
+
+### Funcionalidades do Validador de Staging:
+- **Auto-Repair Inteligente**: Remove delimitadores markdown (````json ... ````), corrige aspas duplas internas de citações/leis sem escape e elimina vírgulas sobressalentes (*trailing commas*).
+- **Preservação do Original**: Mantém o arquivo de entrada intacto e grava o JSON normalizado em `<arquivo>.repaired.json`.
+- **Validação de Banca FCC**: Checa rigorosamente 5 alternativas (A-E), 1 gabarito único, justificativas completas e dificuldade (1 a 10).
+- **Proteção Anti-Duplicata**: Impede a inserção de questões repetidas na mesma matéria.

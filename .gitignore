@@ -43,4 +43,5 @@ next-env.d.ts
 database.sqlite-shm
 .gitignore
 database.sqlite-wal
-naoValidado.txt
+naoValidado.json
+naoValidado.repaired.json
