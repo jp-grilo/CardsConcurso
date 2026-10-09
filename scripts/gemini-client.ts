@@ -119,6 +119,32 @@ export function validateBatch(questions: any[], expectedCount: number): { valid:
 }
 
 /**
+ * Monta o corpo completo da requisicao enviada ao Gemini (modelo, prompt e configuracao).
+ * Compartilhado entre a chamada real e o modo --dry-run para garantir que o que e impresso
+ * seja exatamente o que seria enviado.
+ */
+export function buildGenerateRequest(systemInstruction: string, userPrompt: string) {
+  const modelName = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+
+  // Nivel de raciocinio (thinking) configuravel via .env: MINIMAL | LOW | MEDIUM | HIGH
+  const requestedLevel = (process.env.GEMINI_THINKING_LEVEL || 'HIGH').toUpperCase();
+  const thinkingLevel =
+    (ThinkingLevel as Record<string, ThinkingLevel>)[requestedLevel] ?? ThinkingLevel.HIGH;
+
+  return {
+    model: modelName,
+    contents: userPrompt,
+    config: {
+      systemInstruction,
+      responseMimeType: 'application/json',
+      responseSchema: QuestionBatchSchema,
+      temperature: 0.7,
+      thinkingConfig: { thinkingLevel },
+    },
+  };
+}
+
+/**
  * Realiza a chamada à API do Gemini com Structured Outputs e retentativas com backoff exponencial
  */
 export async function generateQuestionBatch(
@@ -132,13 +158,7 @@ export async function generateQuestionBatch(
     throw new Error('Variável de ambiente GEMINI_API_KEY não definida no .env');
   }
 
-  const modelName = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
   const ai = new GoogleGenAI({ apiKey });
-
-  // Nivel de raciocinio (thinking) configuravel via .env: MINIMAL | LOW | MEDIUM | HIGH
-  const requestedLevel = (process.env.GEMINI_THINKING_LEVEL || 'HIGH').toUpperCase();
-  const thinkingLevel =
-    (ThinkingLevel as Record<string, ThinkingLevel>)[requestedLevel] ?? ThinkingLevel.HIGH;
 
   let attempt = 0;
   let lastError: Error | null = null;
@@ -146,17 +166,9 @@ export async function generateQuestionBatch(
   while (attempt < maxRetries) {
     attempt++;
     try {
-      const response = await ai.models.generateContent({
-        model: modelName,
-        contents: userPrompt,
-        config: {
-          systemInstruction,
-          responseMimeType: 'application/json',
-          responseSchema: QuestionBatchSchema,
-          temperature: 0.7,
-          thinkingConfig: { thinkingLevel },
-        },
-      });
+      const response = await ai.models.generateContent(
+        buildGenerateRequest(systemInstruction, userPrompt)
+      );
 
       const responseText = response.text?.trim();
       if (!responseText) {

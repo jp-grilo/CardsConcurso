@@ -10,11 +10,12 @@
 import 'dotenv/config';
 import { parseArgs } from 'node:util';
 import { FCC_TCE_SYSTEM_PROMPT, buildBatchPrompt } from './prompts/system-fcc-tce';
-import { generateQuestionBatch } from './gemini-client';
+import { generateQuestionBatch, buildGenerateRequest } from './gemini-client';
 import { buildCavemanExclusionList } from './caveman-compressor';
 import { loadKnowledgeForTopic } from './knowledge-loader';
 import {
   getOrCreateCategory,
+  findCategoryId,
   getQuestionsCount,
   getExistingStatements,
   insertQuestionBatchTransaction,
@@ -44,6 +45,7 @@ async function main() {
     target: { type: 'string' as const },
     delay: { type: 'string' as const, short: 'd' },
     batchSize: { type: 'string' as const, short: 'b' },
+    'dry-run': { type: 'boolean' as const },
     help: { type: 'boolean' as const, short: 'h' },
   };
 
@@ -68,6 +70,8 @@ Opcoes:
   --target          Meta total de questoes para o topico (padrao: do .env ou 120)
   --delay, -d       Intervalo de pausa entre lotes em ms (padrao: do .env ou 4000)
   --batchSize, -b   Quantidade de questoes por lote (padrao: do .env ou 5)
+  --dry-run         Nao chama a API nem grava no banco: imprime no console o corpo
+                    completo da requisicao do primeiro lote e encerra
   --help, -h        Exibe esta mensagem de ajuda
 `);
     process.exit(0);
@@ -98,11 +102,13 @@ Opcoes:
   console.log(`   - Modelo Gemini:    ${modelName}\n`);
 
   // 2. Conectar ao SQLite e obter estado inicial
-  const categoryId = getOrCreateCategory(cleanTopic);
-  let currentCount = getQuestionsCount(categoryId);
-  console.log(`[STATUS BANCO] Categoria ID #${categoryId} possui ${currentCount} questoes.`);
+  const dryRun = parsedArgs.values['dry-run'] === true;
+  // Em dry-run o banco e somente lido: a categoria nao e criada se nao existir
+  const categoryId = dryRun ? findCategoryId(cleanTopic) : getOrCreateCategory(cleanTopic);
+  let currentCount = categoryId === null ? 0 : getQuestionsCount(categoryId);
+  console.log(`[STATUS BANCO] Categoria ${categoryId === null ? '(ainda nao existe)' : `ID #${categoryId}`} possui ${currentCount} questoes.`);
 
-  if (currentCount >= targetTotal) {
+  if (!dryRun && currentCount >= targetTotal) {
     console.log(`\n[AVISO] Meta ja alcancada ou ultrapassada! (${currentCount}/${targetTotal} questoes cadastradas).`);
     console.log('Nenhuma geracao adicional necessaria. Finalizando.\n');
     closeDb();
@@ -110,7 +116,7 @@ Opcoes:
   }
 
   // 3. Prevencao de duplicatas (Carregar enunciados e preparar Caveman cache)
-  const existingStatements = getExistingStatements(categoryId);
+  const existingStatements = categoryId === null ? [] : getExistingStatements(categoryId);
   console.log(`[CACHE] Enunciados previos carregados na memoria: ${existingStatements.length}`);
 
   // 4. Carregar referencias do edital / provas (Grounding)
@@ -128,10 +134,10 @@ Opcoes:
   const initialCount = currentCount;
 
   // 5. Loop de Micro-Lotes
-  while (currentCount < targetTotal) {
+  while (dryRun || currentCount < targetTotal) {
     batchIndex++;
     const remaining = targetTotal - currentCount;
-    const currentBatchSize = Math.min(batchSize, remaining);
+    const currentBatchSize = dryRun ? batchSize : Math.min(batchSize, remaining);
 
     console.log(`\n------------------------------------------------------`);
     console.log(`[LOTE ${batchIndex}] Gerando ${currentBatchSize} questoes... (Progresso: ${currentCount}/${targetTotal})`);
@@ -147,6 +153,19 @@ Opcoes:
       editalContext: knowledge.editalSummary,
       sampleQuestion: knowledge.sampleQuestions,
     });
+
+    if (dryRun) {
+      const request = buildGenerateRequest(FCC_TCE_SYSTEM_PROMPT, userPrompt);
+      console.log('\n[DRY-RUN] Requisicao NAO enviada. Corpo completo que seria enviado a API:\n');
+      console.log(JSON.stringify(request, null, 2));
+      console.log('\n------------ systemInstruction (texto legivel) ------------');
+      console.log(request.config.systemInstruction);
+      console.log('\n------------ contents (texto legivel) ------------');
+      console.log(request.contents);
+      console.log('\n[DRY-RUN] Nenhuma chamada a API e nenhuma gravacao no banco foram realizadas.\n');
+      closeDb();
+      process.exit(0);
+    }
 
     try {
       // Chamar API com Structured Outputs e validacao estrita

@@ -35,6 +35,16 @@ export function getOrCreateCategory(categoryName: string): number {
 }
 
 /**
+ * Retorna o ID da categoria se existir, sem cria-la (uso em --dry-run, somente leitura).
+ */
+export function findCategoryId(categoryName: string): number | null {
+  const row = db.prepare('SELECT id FROM categories WHERE name = ?').get(categoryName) as
+    | { id: number }
+    | undefined;
+  return row ? row.id : null;
+}
+
+/**
  * Retorna a quantidade total de questões cadastradas para a categoria informada.
  */
 export function getQuestionsCount(categoryId: number): number {
