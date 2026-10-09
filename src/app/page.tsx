@@ -1,10 +1,10 @@
-export default function DashboardPage() {
+import { getGlobalStats } from '@/actions/dashboard';
+import { Dashboard } from '@/components/Dashboard';
+
+export default async function HomePage() {
+  const stats = await getGlobalStats();
+
   return (
-    <div>
-      <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '16px' }}>Dashboard</h1>
-      <p style={{ color: 'var(--muted)' }}>
-        Estatísticas e métricas globais aparecerão aqui.
-      </p>
-    </div>
+    <Dashboard stats={stats} />
   );
 }
