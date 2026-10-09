@@ -5,7 +5,7 @@
  * com suporte nativo a Structured Outputs (JSON Schema estrito), validação e retries.
  */
 
-import { GoogleGenAI, Type, type Schema } from '@google/genai';
+import { GoogleGenAI, Type, ThinkingLevel, type Schema } from '@google/genai';
 
 export interface GeneratedOption {
   text: string;
@@ -135,6 +135,11 @@ export async function generateQuestionBatch(
   const modelName = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
   const ai = new GoogleGenAI({ apiKey });
 
+  // Nivel de raciocinio (thinking) configuravel via .env: MINIMAL | LOW | MEDIUM | HIGH
+  const requestedLevel = (process.env.GEMINI_THINKING_LEVEL || 'HIGH').toUpperCase();
+  const thinkingLevel =
+    (ThinkingLevel as Record<string, ThinkingLevel>)[requestedLevel] ?? ThinkingLevel.HIGH;
+
   let attempt = 0;
   let lastError: Error | null = null;
 
@@ -149,6 +154,7 @@ export async function generateQuestionBatch(
           responseMimeType: 'application/json',
           responseSchema: QuestionBatchSchema,
           temperature: 0.7,
+          thinkingConfig: { thinkingLevel },
         },
       });
 
