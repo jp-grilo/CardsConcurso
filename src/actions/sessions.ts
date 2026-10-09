@@ -104,3 +104,80 @@ export async function createSimuladoSession(topics: SimuladoTopicConfig[]) {
   // Redireciona para a tela do simulado
   redirect(`/simulado/${sessionId}`);
 }
+
+export interface EstudoSessionConfig {
+  categoryId: number | null;
+  questionCount: number;
+  targetDifficulty: number;
+}
+
+export async function createEstudoSession(config: EstudoSessionConfig) {
+  let query = `
+    SELECT id, difficulty, last_accessed_at, last_result 
+    FROM questions 
+  `;
+  
+  const params: any[] = [];
+  if (config.categoryId !== null) {
+    query += ` WHERE category_id = ?`;
+    params.push(config.categoryId);
+  }
+
+  const allQuestions = db.prepare(query).all(...params) as any[];
+
+  if (allQuestions.length === 0) {
+    throw new Error("Não há questões suficientes no banco para este filtro.");
+  }
+
+  // Mesmo algoritmo de peso
+  const scoredQuestions = allQuestions.map(q => {
+    let score = 0;
+    const diffDiff = Math.abs(q.difficulty - config.targetDifficulty);
+    score += Math.max(0, 10 - diffDiff);
+
+    if (q.last_result === 0) score += 15;
+
+    if (!q.last_accessed_at) {
+      score += 5;
+    } else {
+      const daysSince = (Date.now() - new Date(q.last_accessed_at).getTime()) / (1000 * 60 * 60 * 24);
+      score += Math.min(10, daysSince);
+    }
+    return { id: q.id, score, random: Math.random() };
+  });
+
+  scoredQuestions.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return b.random - a.random;
+  });
+
+  const topQuestions = scoredQuestions.slice(0, config.questionCount).map(sq => sq.id);
+  
+  if (topQuestions.length === 0) {
+    throw new Error("Não foi possível gerar a bateria.");
+  }
+
+  const insertSession = db.prepare(`
+    INSERT INTO sessions (mode, status, total_questions)
+    VALUES ('estudo', 'em_andamento', ?)
+  `);
+
+  const insertSessionAnswer = db.prepare(`
+    INSERT INTO session_answers (session_id, question_id)
+    VALUES (?, ?)
+  `);
+
+  let sessionId: number | bigint = 0;
+
+  db.transaction(() => {
+    const sResult = insertSession.run(topQuestions.length);
+    sessionId = sResult.lastInsertRowid;
+
+    for (const qId of topQuestions) {
+      insertSessionAnswer.run(sessionId, qId);
+    }
+  })();
+
+  redirect(`/estudo/${sessionId}`);
+}
+

@@ -114,3 +114,37 @@ export async function finishSession(sessionId: number, timeElapsed: number, user
   revalidatePath(`/simulado/${sessionId}`);
   redirect(`/simulado/${sessionId}/resultado`);
 }
+
+export async function confirmEstudoAnswer(sessionId: number, questionId: number, optionId: number) {
+  const getOptions = db.prepare('SELECT id, is_correct, justification FROM options WHERE question_id = ?');
+  const updateAnswer = db.prepare(`
+    UPDATE session_answers 
+    SET is_correct = ? 
+    WHERE session_id = ? AND question_id = ?
+  `);
+  const updateQuestionStats = db.prepare(`
+    UPDATE questions 
+    SET last_accessed_at = CURRENT_TIMESTAMP, last_result = ?
+    WHERE id = ?
+  `);
+
+  const options = getOptions.all(questionId) as any[];
+  const chosenOption = options.find(o => o.id === optionId);
+  const isCorrect = chosenOption ? (chosenOption.is_correct === 1) : false;
+
+  db.transaction(() => {
+    updateAnswer.run(isCorrect ? 1 : 0, sessionId, questionId);
+    updateQuestionStats.run(isCorrect ? 1 : 0, questionId);
+  })();
+
+  return {
+    isCorrect,
+    correctOptionId: options.find(o => o.is_correct === 1)?.id,
+    optionsData: options.map(o => ({
+      id: o.id,
+      isCorrect: o.is_correct === 1,
+      justification: o.justification
+    }))
+  };
+}
+

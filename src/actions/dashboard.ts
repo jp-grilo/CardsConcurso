@@ -7,7 +7,7 @@ export async function getGlobalStats() {
   const totalQuestionsRow = db.prepare('SELECT COUNT(*) as count FROM questions').get() as { count: number };
   
   // Total de sessões concluídas (simulados e estudos)
-  const completedSessionsRow = db.prepare('SELECT COUNT(*) as count FROM sessions WHERE status = "concluido"').get() as { count: number };
+  const completedSessionsRow = db.prepare("SELECT COUNT(*) as count FROM sessions WHERE status = 'concluido'").get() as { count: number };
   
   // Acertos vs Erros Globais (apenas respostas que não são nulas)
   const stats = db.prepare(`
