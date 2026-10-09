@@ -1,0 +1,194 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tableWrapper {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th, .table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  background-color: var(--surface-hover);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background-color: var(--surface-hover);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 32px !important;
+  color: var(--muted);
+}
+
+.topicName {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.maxQ {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+.inputNumber, .inputSmall, .select {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: var(--transition);
+}
+
+.inputNumber {
+  width: 100%;
+  max-width: 80px;
+}
+
+.inputSmall {
+  width: 140px;
+}
+
+.select {
+  flex: 1;
+  max-width: 400px;
+}
+
+.inputNumber:focus, .inputSmall:focus, .select:focus {
+  border-color: var(--primary);
+}
+
+.orderButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  transition: var(--transition);
+}
+
+.iconBtn:not(:disabled):hover {
+  background-color: var(--border);
+  color: var(--foreground);
+}
+
+.iconBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.bulkActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: var(--surface-hover);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.selectedCount {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.bulkControls, .addArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btnPrimary, .btnSecondary, .btnDanger, .btnStart {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btnPrimary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.btnSecondary {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.btnSecondary:hover {
+  background-color: var(--border);
+}
+
+.btnDanger {
+  background-color: var(--danger);
+  color: var(--danger-foreground);
+}
+
+.btnDanger:hover {
+  opacity: 0.9;
+}
+
+.btnStart {
+  background-color: var(--success);
+  color: var(--success-foreground);
+  padding: 12px 24px;
+  font-size: 1.1rem;
+}
+
+.btnStart:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btnStart:disabled, .btnPrimary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.footerActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
