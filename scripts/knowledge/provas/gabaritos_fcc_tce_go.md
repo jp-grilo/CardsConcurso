@@ -1,0 +1,138 @@
+# Gabaritos Oficiais FCC - TCE-GO
+
+Tribunal de Contas do Estado de Goiás Analista de Controle Externo
+Relação dos gabaritos CONHECIMENTOS
+GERAIS/CONHECIMENTOS ESPECÍFICOS I Cargo ou opção A01 -
+AN CONTR EXT - ESP - CONTABILIDADE Tipo gabarito 1
+CONHECIMENTOS GERAIS/CONHECIMENTOS ESPECÍFICOS I
+Cargo ou opção B02 - AN CONTR EXT - ESP - ENGENHARIA Tipo
+gabarito 1 CONHECIMENTOS GERAIS/CONHECIMENTOS
+ESPECÍFICOS I Cargo ou opção C03 - AN CONTR EXT - ESP -
+GESTÃO DE PESSOAS Tipo gabarito 1 001 - B 002 - A 003 - E 004 - D
+005 - C 006 - A 007 - D 008 - B 009 - E 010 - C 011 - A 012 - D 013 - A
+014 - C 015 - B 016 - E 017 - B 018 - D 019 - C 020 - E 021 - C 022 - E 023
+- A 024 - A 025 - D 026 - B 027 - E 028 - B 029 - D 030 - C 031 - E 032 - D
+033 - C 034 - B 035 - A 036 - E 037 - C 038 - B 039 - A 040 - D 041 - A
+042 - E 043 - B 044 - C 045 - A 046 - C 047 - D 048 - B 049 - E 050 - D 051
+- B 052 - D 053 - B 054 - A 055 - E 056 - C 057 - C 058 - D 059 - A 060 - E
+061 - E 062 - A 063 - D 064 - D 065 - C 066 - B 067 - A 068 - E 069 - B 070
+- C 071 - B 072 - A 073 - E 074 - C 075 - D 076 - B 077 - D 078 - A 079 - C
+
+-- 1 of 5 --
+
+080 - E 081 - B 082 - C 083 - A 084 - E 085 - A 086 - E 087 - D 088 - C 089
+- A 090 - B 091 - A 092 - E 093 - D 094 - C 095 - B 096 - D 097 - A 098 - D
+099 - C 100 - B 001 - B 002 - A 003 - E 004 - D 005 - C 006 - A 007 - D
+008 - B 009 - E 010 - C 011 - A 012 - D 013 - A 014 - C 015 - B 016 - E 017
+- B 018 - D 019 - C 020 - E 021 - C 022 - E 023 - A 024 - A 025 - D 026 - B
+027 - E 028 - B 029 - D 030 - C 031 - E 032 - D 033 - C 034 - B 035 - A 036
+- E 037 - C 038 - B 039 - A 040 - D 041 - A 042 - E 043 - B 044 - C 045 - A
+046 - C 047 - D 048 - B 049 - E 050 - D 051 - B 052 - D 053 - B 054 - A
+055 - E 056 - C 057 - C 058 - D 059 - A 060 - E 061 - A 062 - D 063 - E 064
+- E 065 - A 066 - C 067 - D 068 - A 069 - E 070 - B 071 - B 072 - C 073 - B
+074 - E 075 - A 076 - D 077 - C 078 - D 079 - B 080 - C 081 - D 082 - A
+083 - A 084 - C 085 - A 086 - D 087 - E 088 - D 089 - E 090 - C 091 - A
+092 - B 093 - B 094 - D 095 - A 096 - C 097 - E 098 - B 099 - A 100 - D
+001 - B 002 - A 003 - E 004 - D 005 - C 006 - A 007 - D 008 - B 009 - E 010
+- C 011 - A 012 - D 013 - A 014 - C 015 - B 016 - E 017 - B 018 - D 019 - C
+020 - E 021 - C 022 - E 023 - A 024 - A 025 - D 026 - B 027 - E 028 - B 029
+- D 030 - C 031 - E 032 - D 033 - C 034 - B 035 - A 036 - E 037 - C 038 - B
+039 - A 040 - D 041 - A 042 - E 043 - B 044 - C 045 - A 046 - C 047 - D
+048 - B 049 - E 050 - D 051 - B 052 - D 053 - B 054 - A 055 - E 056 - C 057
+- C 058 - D 059 - A 060 - E 061 - B 062 - A 063 - A 064 - E 065 - B 066 - C
+067 - D 068 - C 069 - B 070 - A 071 - E 072 - A 073 - D 074 - C 075 - E 076
+- B 077 - D 078 - C 079 - D 080 - A 081 - E 082 - B 083 - A 084 - D 085 - A
+086 - C 087 - E 088 - B 089 - A 090 - D 091 - B 092 - E 093 - B 094 - D 095
+- E 096 - C 097 - A 098 - C 099 - E 100 - C
+
+-- 2 of 5 --
+
+CONHECIMENTOS
+GERAIS/CONHECIMENTOS ESPECÍFICOS I Cargo ou opção D04 -
+AN CONTR EXT - ESP - GESTÃO DE CONHECIMENTO Tipo
+gabarito 1 CONHECIMENTOS GERAIS/CONHECIMENTOS
+ESPECÍFICOS I Cargo ou opção E05 - AN CONTR EXT - ESP -
+JURÍDICA Tipo gabarito 1 CONHECIMENTOS
+GERAIS/CONHECIMENTOS ESPECÍFICOS I Cargo ou opção F06 -
+AN CONTR EXT - ESP - ORÇAMENTO E FINANÇAS Tipo gabarito
+1 001 - B 002 - A 003 - E 004 - D 005 - C 006 - A 007 - D 008 - B 009 - E
+010 - C 011 - A 012 - D 013 - A 014 - C 015 - B 016 - E 017 - B 018 - D 019
+- C 020 - E 021 - C 022 - E 023 - A 024 - A 025 - D 026 - B 027 - E 028 - B
+029 - D 030 - C 031 - E 032 - D 033 - C 034 - B 035 - A 036 - E 037 - C 038
+- B 039 - A 040 - D 041 - A 042 - E 043 - B 044 - C 045 - A 046 - C 047 - D
+048 - B 049 - E 050 - D 051 - B 052 - D 053 - B 054 - A 055 - E 056 - C 057
+- C 058 - D 059 - A 060 - E 061 - C 062 - A 063 - E 064 - B 065 - D 066 - A
+067 - E 068 - A 069 - C 070 - B 071 - E 072 - A 073 - E 074 - C 075 - B 076
+- D 077 - D 078 - E 079 - B 080 - C 081 - A 082 - D 083 - B 084 - D 085 - C
+086 - E 087 - C 088 - A 089 - C 090 - E 091 - B 092 - C 093 - D 094 - A 095
+- A 096 - C 097 - B 098 - D 099 - B 100 - A 001 - B 002 - A 003 - E 004 - D
+005 - C 006 - A 007 - D 008 - B 009 - E 010 - C 011 - A 012 - D 013 - A
+014 - C 015 - B 016 - E 017 - B 018 - D 019 - C 020 - E 021 - A 022 - E 023
+- B 024 - C 025 - A 026 - C 027 - D 028 - B 029 - E 030 - D 031 - E 032 - A
+033 - D 034 - B 035 - A 036 - C 037 - E 038 - B 039 - D 040 - C 041 - B 042
+
+-- 3 of 5 --
+
+- E 043 - E 044 - C 045 - A 046 - D 047 - C 048 - D 049 - A 050 - E 051 - C
+052 - B 053 - B 054 - A 055 - E 056 - A 057 - D 058 - A 059 - E 060 - B 061
+- A 062 - D 063 - C 064 - E 065 - B 066 - D 067 - A 068 - C 069 - E 070 - B
+071 - D 072 - A 073 - C 074 - B 075 - A 076 - B 077 - E 078 - D 079 - A
+080 - C 081 - A 082 - B 083 - E 084 - D 085 - D 086 - D 087 - C 088 - B
+089 - B 090 - A 091 - E 092 - D 093 - D 094 - B 095 - B 096 - C 097 - B 098
+- A 099 - E 100 - D 001 - B 002 - A 003 - E 004 - D 005 - C 006 - A 007 - D
+008 - B 009 - E 010 - C 011 - A 012 - D 013 - A 014 - C 015 - B 016 - E 017
+- B 018 - D 019 - C 020 - E 021 - C 022 - E 023 - A 024 - A 025 - D 026 - B
+027 - E 028 - B 029 - D 030 - C 031 - E 032 - D 033 - C 034 - B 035 - A 036
+- E 037 - C 038 - B 039 - A 040 - D 041 - A 042 - E 043 - B 044 - C 045 - A
+046 - C 047 - D 048 - B 049 - E 050 - D 051 - B 052 - D 053 - B 054 - A
+055 - E 056 - C 057 - C 058 - D 059 - A 060 - E 061 - D 062 - E 063 - D 064
+- B 065 - A 066 - A 067 - C 068 - B 069 - C 070 - E 071 - E 072 - A 073 - D
+074 - B 075 - D 076 - A 077 - C 078 - E 079 - D 080 - A 081 - D 082 - E
+083 - A 084 - D 085 - A 086 - C 087 - B 088 - E 089 - C 090 - B 091 - C 092
+- C 093 - C 094 - E 095 - D 096 - D 097 - E 098 - A 099 - C 100 - B
+CONHECIMENTOS
+GERAIS/CONHECIMENTOS ESPECÍFICOS I Cargo ou opção G07 -
+AN CONTR EXT - ESP - PLANEJ DESENV ORGANIZACIONAL
+Tipo gabarito 1 CONHECIMENTOS GERAIS/CONHECIMENTOS
+ESPECÍFICOS I Cargo ou opção H08 - AN CONTR EXT - ESP -
+TECNOLOGIA DA INFORMAÇÃO Tipo gabarito 1
+
+-- 4 of 5 --
+
+CONHECIMENTOS GERAIS/CONHECIMENTOS ESPECÍFICOS I
+Cargo ou opção I09 - AN CONTR EXT - ESP - ADMINISTRATIVA
+Tipo gabarito 1 001 - B 002 - A 003 - E 004 - D 005 - C 006 - A 007 - D
+008 - B 009 - E 010 - C 011 - A 012 - D 013 - A 014 - C 015 - B 016 - E 017
+- B 018 - D 019 - C 020 - E 021 - C 022 - E 023 - A 024 - A 025 - D 026 - B
+027 - E 028 - B 029 - D 030 - C 031 - E 032 - D 033 - C 034 - B 035 - A 036
+- E 037 - C 038 - B 039 - A 040 - D 041 - A 042 - E 043 - B 044 - C 045 - A
+046 - C 047 - D 048 - B 049 - E 050 - D 051 - B 052 - D 053 - B 054 - A
+055 - E 056 - C 057 - C 058 - D 059 - A 060 - E 061 - C 062 - B 063 - E 064
+- E 065 - A 066 - C 067 - D 068 - A 069 - D 070 - C 071 - E 072 - B 073 - D
+074 - B 075 - C 076 - D 077 - D 078 - C 079 - E 080 - A 081 - E 082 - C 083
+- B 084 - C 085 - A 086 - D 087 - B 088 - E 089 - A 090 - D 091 - B 092 - C
+093 - D 094 - E 095 - A 096 - B 097 - D 098 - C 099 - B 100 - A 001 - B
+002 - A 003 - E 004 - D 005 - C 006 - A 007 - D 008 - B 009 - E 010 - C 011
+- A 012 - D 013 - A 014 - C 015 - B 016 - E 017 - B 018 - D 019 - C 020 - E
+021 - C 022 - E 023 - A 024 - A 025 - D 026 - B 027 - E 028 - B 029 - D 030
+- C 031 - E 032 - D 033 - C 034 - B 035 - A 036 - E 037 - C 038 - B 039 - A
+040 - D 041 - A 042 - E 043 - B 044 - C 045 - A 046 - C 047 - D 048 - B
+049 - E 050 - D 051 - B 052 - D 053 - B 054 - A 055 - E 056 - C 057 - C 058
+- D 059 - A 060 - E 061 - C 062 - B 063 - E 064 - E 065 - A 066 - C 067 - D
+068 - A 069 - A 070 - C 071 - E 072 - B 073 - D 074 - B 075 - C 076 - D
+077 - D 078 - C 079 - E 080 - A 081 - E 082 - C 083 - B 084 - C 085 - A 086
+- D 087 - B 088 - E 089 - A 090 - D 091 - B 092 - C 093 - D 094 - E 095 - A
+096 - B 097 - D 098 - C 099 - D 100 - A 001 - B 002 - A 003 - E 004 - D
+005 - C 006 - A 007 - D 008 - B 009 - E 010 - C 011 - A 012 - D 013 - A
+014 - C 015 - B 016 - E 017 - B 018 - D 019 - C 020 - E 021 - C 022 - E 023
+- A 024 - A 025 - D 026 - B 027 - E 028 - B 029 - D 030 - C 031 - E 032 - D
+033 - C 034 - B 035 - A 036 - E 037 - C 038 - B 039 - A 040 - D 041 - A
+042 - E 043 - B 044 - C 045 - A 046 - C 047 - D 048 - B 049 - E 050 - D 051
+- B 052 - D 053 - B 054 - A 055 - E 056 - C 057 - C 058 - D 059 - A 060 - E
+061 - A 062 - B 063 - E 064 - B 065 - C 066 - E 067 - C 068 - A 069 - D 070
+- C 071 - D 072 - C 073 - A 074 - E 075 - B 076 - C 077 - D 078 - B 079 - A
+080 - E 081 - A 082 - C 083 - E 084 - D 085 - B 086 - C 087 - B 088 - A 089
+- A 090 - C 091 - C 092 - D 093 - E 094 - B 095 - E 096 - E 097 - D 098 - B
+099 - A 100 - D
+
+-- 5 of 5 --
