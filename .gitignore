@@ -45,3 +45,4 @@ database.sqlite-shm
 database.sqlite-wal
 naoValidado.json
 naoValidado.repaired.json
+scripts/prompts/modelos-solicitacao-api.md

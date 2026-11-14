@@ -6,15 +6,15 @@ $ErrorActionPreference = "Continue"
 
 $microBlocos = @(
     # PARTE 1: CONHECIMENTOS GERAIS
-    "Lingua Portuguesa - Compreensao e Redacao Oficial",
-    "Lingua Portuguesa - Significacao e Estilistica",
-    "Lingua Portuguesa - Gramatica, Sintaxe e Crase",
-    "Lingua Portuguesa - Concordancia, Regencia e Conectivos",
-    "Matematica e Raciocinio Logico - Matematica Basica e Proporcoes",
-    "Matematica e Raciocinio Logico - Estruturas Logicas e Deducao",
-    "Matematica e Raciocinio Logico - Logica Proposicional e Argumentacao",
-    "Legislacao Institucional - Controle Constitucional e CF/88",
-    "Legislacao Institucional - Constituicao Estadual e Normativos do TCE-GO",
+    # "Lingua Portuguesa - Compreensao e Redacao Oficial",
+    # "Lingua Portuguesa - Significacao e Estilistica",
+    # "Lingua Portuguesa - Gramatica, Sintaxe e Crase",
+    # "Lingua Portuguesa - Concordancia, Regencia e Conectivos",
+    # "Matematica e Raciocinio Logico - Matematica Basica e Proporcoes",
+    # "Matematica e Raciocinio Logico - Estruturas Logicas e Deducao",
+    # "Matematica e Raciocinio Logico - Logica Proposicional e Argumentacao",
+    # "Legislacao Institucional - Controle Constitucional e CF/88",
+    # "Legislacao Institucional - Constituicao Estadual e Normativos do TCE-GO",
     "Legislacao Institucional - Regime dos Servidores de Goias e Resolucoes",
 
     # PARTE 2: CONHECIMENTOS ESPECIFICOS - TI
@@ -59,7 +59,7 @@ $index = 0
 foreach ($bloco in $microBlocos) {
     $index++
     Write-Host "[$index/$($microBlocos.Count)] Executando bloco: $bloco"
-    npm run generate-questions -- --topic "$bloco" --target 20
+    npm run generate-questions -- --topic "$bloco" --target 30
     Write-Host ""
 }
 

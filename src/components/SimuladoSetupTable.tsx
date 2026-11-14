@@ -147,7 +147,7 @@ export function SimuladoSetupTable({ availableCategories }: { availableCategorie
         <table className={styles.table}>
           <thead>
             <tr>
-              <th width="40">
+              <th style={{ width: 40 }}>
                 <input 
                   type="checkbox" 
                   checked={rows.length > 0 && selectedRowIds.size === rows.length}
@@ -155,10 +155,10 @@ export function SimuladoSetupTable({ availableCategories }: { availableCategorie
                 />
               </th>
               <th>Tópico</th>
-              <th width="120">Nº Questões</th>
-              <th width="100">Peso</th>
-              <th width="140">Dificuldade Alvo</th>
-              <th width="100">Ordenação</th>
+              <th style={{ width: 120 }}>Nº Questões</th>
+              <th style={{ width: 100 }}>Peso</th>
+              <th style={{ width: 140 }}>Dificuldade Alvo</th>
+              <th style={{ width: 100 }}>Ordenação</th>
             </tr>
           </thead>
           <tbody>
